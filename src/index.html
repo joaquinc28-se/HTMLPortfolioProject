@@ -29,7 +29,7 @@ body {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #111;
   overflow-x: hidden;
   transition: 0.5s;
@@ -37,7 +37,7 @@ body {
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 32px; /* Keeps text pushed 32px from the left edge */
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -45,17 +45,19 @@ body {
   transition: 0.3s;
 }
 
+
 .sidenav a:hover {
   color: #f1f1f1;
 }
 
 .sidenav .closebtn {
   position: absolute;
-  top: 0;
-  right: 25px;
+  top: 20px;
+  left: 25px;       /* Changed from right to left */
   font-size: 36px;
-  margin-left: 50px;
+  margin-left: 0;   /* Cleaned up old margin tracking */
 }
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -64,6 +66,7 @@ body {
 </style>
 </head>
 <body>
+  
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -73,7 +76,8 @@ body {
   <a href="#">Contact</a>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Options</span>
+<span style="font-size:30px;cursor:pointer;position:fixed;top:20px;right:20px;z-index:2;" onclick="openNav()">☰ Options</span>
+
 
 <script>
 function openNav() {
